@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const db = require('quick.db');
 let prefix = '!'
 
 client.on('ready', () => { 
@@ -69,10 +68,6 @@ client.on('message', async message => {
     message.reply('You can check for **help** in your **dms**');
     message.member.send('Oh so you want **help** on how to use this **bot**! I see. Ok here we go!\nThis bots **prefix** is **!** so use it for **every command**!\n` - rps`\n` - 8ball`\n` - google`\n` - say (something)`\n` - avatar @User`\n` - nickname (nickname)`\n\nYou can also say this to get a responce:**(whithout prefix)**\n` - Ping`\n` - Space`')
 
-    let fetched = await  db.fetch(`prefix_${message.guild.id}`);
-    if (fetched === null) prefix = '!';
-    else prefix = fetched;
-    
   }
 });
 
